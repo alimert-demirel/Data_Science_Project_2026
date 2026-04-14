@@ -29,3 +29,73 @@ event_date,headline,description,event_type,source,after_market_close
 2023-12-18,Operation Prosperity Guardian,US announces coalition to defend Red Sea shipping,Escalation,Reuters,False
 2024-01-11,US and UK strike Houthi targets,Retaliatory strikes against Houthi forces in Yemen,Airstrike,Reuters,True
 2014-06-29,ISIS declares caliphate,Islamic State formally announces its global caliphate,Terrorism,Reuters,True
+2013-04-15,Boston Marathon bombing,Terrorist attack during the Boston Marathon,Terrorism,Reuters,False
+2014-02-27,Annexation of Crimea begins,Russian troops seize Crimean parliament,Invasion,Reuters,False
+2014-09-22,US airstrikes in Syria begin,Coalition begins bombing ISIS targets in Syria,Intervention,Reuters,False
+2015-01-07,Charlie Hebdo attack,Terrorist attack in Paris at magazine office,Terrorism,Reuters,False
+2015-03-26,Saudi intervention in Yemen,Coalition begins airstrikes against Houthis,Intervention,Reuters,False
+2015-11-13,Paris terror attacks,Coordinated ISIS attacks across Paris,Terrorism,Reuters,True
+2016-03-22,Brussels bombings,ISIS bombings at airport and metro station,Terrorism,Reuters,False
+2016-12-19,Assassination of Andrei Karlov,Russian ambassador to Turkey assassinated,Assassination,Reuters,True
+2017-04-06,Shayrat missile strike,US Tomahawk strike on Syrian airbase,Missile Strike,Reuters,True
+2017-05-22,Manchester Arena bombing,Terrorist bombing following a concert,Terrorism,Reuters,True
+2017-10-01,Las Vegas shooting,Deadliest mass shooting in modern US history,Domestic Terrorism,Reuters,False
+2018-05-08,US withdraws from JCPOA,US announces exit from Iran nuclear deal,Diplomatic,Reuters,False
+2019-02-26,Balakot airstrike,Indian warplanes strike inside Pakistan,Airstrike,Reuters,False
+2019-09-14,Abqaiq-Khurais attack,Drone attack on Saudi Aramco oil facilities,Infrastructure Attack,Reuters,False
+2020-01-03,Assassination of Qasem Soleimani,US drone strike kills Iranian general,Assassination,Reuters,False
+2020-01-08,Operation Martyr Soleimani,Iran launches missiles at US bases in Iraq,Missile Strike,Reuters,False
+2020-06-15,Galwan Valley clash,Deadly skirmish between Indian and Chinese troops,Border Clash,Reuters,False
+2020-09-27,Second Nagorno-Karabakh War,Conflict erupts between Armenia and Azerbaijan,Escalation,Reuters,False
+2021-08-15,Fall of Kabul,Taliban captures Afghan capital leading to US evacuation,Collapse,Reuters,False
+2021-08-26,Kabul airport attack,ISIS-K suicide bombing kills over 170,Terrorism,Reuters,False
+2022-02-24,Russian invasion of Ukraine,Russia launches full-scale invasion of Ukraine,Invasion,Reuters,False
+2022-10-08,Crimean Bridge explosion,Truck bomb damages key bridge linking Russia to Crimea,Infrastructure Attack,Reuters,False
+2023-04-15,Sudan conflict outbreak,Fighting erupts between SAF and RSF in Khartoum,Civil War,Reuters,False
+2023-05-03,Kremlin drone attack,Two drones crash into the Kremlin,Drone Strike,Reuters,False
+2023-09-19,Azerbaijani offensive,Azerbaijan launches military operation in Nagorno-Karabakh,Offensive,Reuters,False
+2023-10-07,Hamas attack on Israel,Large-scale surprise attack by Hamas militants,Terrorism,Reuters,False
+2023-10-27,Israeli ground invasion of Gaza,Israel begins major ground offensive in Gaza Strip,Invasion,Reuters,True
+2024-01-28,Tower 22 drone attack,Drone strike kills US troops in Jordan,Drone Strike,Reuters,False
+2024-03-22,Crocus City Hall attack,ISIS-K terrorists attack concert venue in Moscow,Terrorism,Reuters,True
+2024-04-13,Iranian strikes on Israel,Iran launches drone and missile barrage at Israel,Missile Strike,Reuters,False
+2025-06-10,Golan Heights rocket barrage,Hezbollah launches massive rocket attack on Golan Heights,Rocket Strike,Reuters,False
+2025-06-12,IDF retaliatory strikes in southern Lebanon,Israel strikes missile launch sites across the border,Airstrike,Reuters,False
+2025-06-18,Cyberattack on Israeli port infrastructure,Major disruptions at Haifa port attributed to Iranian hackers,Cyberattack,Reuters,False
+2025-06-22,IRGC facility explosion in Isfahan,Mysterious explosion damages drone manufacturing plant,Sabotage,Reuters,False
+2025-07-01,Assassination of IRGC commander in Damascus,High-ranking Iranian official killed in airstrike,Assassination,Reuters,True
+2025-07-04,Missile strike on Israeli cargo ship,Iranian forces target Israeli-linked vessel in Arabian Sea,Naval,Reuters,False
+2025-07-10,Israel strikes Iranian assets in Aleppo,Airstrikes destroy alleged weapons depots in Syria,Airstrike,Reuters,False
+2025-07-15,Drone infiltration into Israeli airspace,Multiple Iranian drones intercepted over northern Israel,Drone Strike,Reuters,False
+2025-07-20,Hezbollah anti-tank missile attacks,Targeted attacks on IDF border patrols,Border Clash,Reuters,False
+2025-07-25,Massive GPS spoofing across Middle East,Electronic warfare disrupts commercial flights in the region,Cyberattack,Reuters,False
+2025-08-02,Israel strikes subterranean facility in Lebanon,Bunker-buster bombs used against Hezbollah tunnels,Airstrike,Reuters,True
+2025-08-06,Iran unveils new hypersonic missile,Tehran claims new weapon can bypass air defenses,Escalation,Reuters,False
+2025-08-11,Rocket alert in Tel Aviv,First rockets reach central Israel in 2025 escalation,Rocket Strike,Reuters,True
+2025-08-14,IDF targeted killing in Beirut,Strike kills senior Hezbollah operative in Lebanese capital,Assassination,Reuters,False
+2025-08-18,Strait of Hormuz tanker seizure,IRGC navy boards and seizes foreign oil tanker,Naval,Reuters,False
+2025-08-22,Israeli cyberattack on Iranian petrol stations,Software attack disables fuel pumps across Iran,Cyberattack,Reuters,False
+2025-08-26,Drone strike on US base in Syria,Iranian-backed militia targets coalition forces,Drone Strike,Reuters,False
+2025-08-28,US retaliatory airstrikes in Deir ez-Zor,American jets strike militia weapons facilities,Intervention,Reuters,False
+2025-09-02,Mossad foils terror plot in Cyprus,Israeli intelligence stops attack on Jewish targets abroad,Terrorism,Reuters,False
+2025-09-05,UN brokered ceasefire attempt fails,Diplomatic talks collapse amid renewed border shelling,Diplomatic,Reuters,False
+2025-11-15,Drone swarm targets Saudi desalination plant,Unprecedented drone attack on vital GCC water infrastructure,Infrastructure Attack,Reuters,True
+2025-11-19,UAE intercepts ballistic missile,Emirati air defenses destroy missile fired from Yemen,Missile Strike,Reuters,False
+2025-11-24,US Fifth Fleet deploys additional destroyers,Naval buildup in response to GCC drone threats,Escalation,Reuters,False
+2025-12-03,Iranian fast-boats harass US cruiser,Tense naval encounter in the Persian Gulf,Naval,Reuters,False
+2025-12-08,Drone strike on Erbil consulate,Militias target US diplomatic facility in northern Iraq,Drone Strike,Reuters,True
+2025-12-14,Israel-GCC joint air defense network activated,Historic military coordination announced against drone threats,Diplomatic,Reuters,False
+2025-12-20,Houthi anti-ship ballistic missile launch,Commercial freighter struck in the Bab-el-Mandeb strait,Naval,Reuters,False
+2025-12-26,US and UK strike Houthi radar sites,Coordinated bombing of launch facilities in Yemen,Intervention,Reuters,True
+2026-01-05,Cyberattack on Bahraini banking sector,Major financial disruption linked to Iranian state hackers,Cyberattack,Reuters,False
+2026-01-12,Explosion at Iranian missile testing facility,Massive blast reported at Semnan space center,Sabotage,Reuters,False
+2026-01-18,Drone attack on US outpost in Jordan,Kamikaze drone kills and injures coalition troops,Drone Strike,Reuters,True
+2026-01-22,B-1 bombers strike IRGC Quds Force in Iraq,Massive US retaliation campaign begins,Airstrike,Reuters,True
+2026-01-28,Israel strikes Iranian drone factory in Syria,Airstrike targets manufacturing hub for GCC-bound drones,Airstrike,Reuters,False
+2026-02-04,Saudi Arabia intercepts drone swarm over Riyadh,Major escalation targeting Saudi capital,Drone Strike,Reuters,True
+2026-02-11,US cyber command disables Iranian spy ship,Vessel in Red Sea hit by cyber operation,Cyberattack,Reuters,False
+2026-02-19,Iranian Shahed-136 strikes Israeli gas rig,Offshore Leviathan platform suffers minor damage,Infrastructure Attack,Reuters,True
+2026-02-27,Joint IDF and CENTCOM military exercise,Massive drill simulating strikes on nuclear facilities,Escalation,Reuters,False
+2026-03-05,Assassination of Houthi drone commander,Key militant leader killed in targeted Sanaa airstrike,Assassination,Reuters,False
+2026-03-12,Iran fires warning shots at GCC patrol boats,Naval skirmish near the disputed Arash/Dorra gas field,Naval,Reuters,False
+2026-03-25,US sanctions Iranian drone procurement network,Treasury department cuts off shell companies in Asia,Diplomatic,Reuters,False
