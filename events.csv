@@ -8,24 +8,61 @@ event_date,headline,description,event_type,source,after_market_close
 2014-02-27,Russian troops enter Crimea,Unmarked Russian forces begin taking over the Crimean peninsula,Invasion,Reuters,False
 2019-09-14,Abqaiq–Khurais attack,Drone attacks on Saudi Aramco oil processing facilities,Infrastructure Attack,Reuters,True
 2017-04-06,US missile strike in Syria,Tomahawk missiles launched at Shayrat Airbase,Missile Strike,Reuters,True
-2022-02-21,Russia recognizes Donetsk and Luhansk,Diplomatic escalation preceding the invasion,Diplomatic,Reuters,False
 2023-10-27,Israel expands ground operations in Gaza,Major infantry and armored advancement,Escalation,Reuters,True
-2015-11-13,Paris attacks,Coordinated terrorist attacks across the French capital,Terrorism,Reuters,True
 2020-01-08,Iran missile strike on US bases,Retaliatory ballistic missile attack in Iraq,Missile Strike,Reuters,True
-2022-11-15,Missile explosion in Poland,Cross-border incident raising NATO Article 5 concerns,Cross-border,Reuters,False
-2023-05-03,Kremlin drone incident,Alleged assassination attempt via drone strike in Moscow,Drone Strike,Reuters,False
-2013-08-21,Ghouta chemical attack,Chemical weapons attack in Syria sparking international crisis,Escalation,Reuters,False
-2014-07-17,MH17 shot down over Ukraine,Malaysia Airlines Flight 17 shot down by missile,Escalation,Reuters,False
 2014-08-08,US begins airstrikes in Iraq,Operation Inherent Resolve begins against ISIS,Intervention,Reuters,False
 2015-09-30,Russian military intervention in Syria,Russia begins airstrikes supporting Assad,Intervention,Reuters,False
 2016-07-15,Turkish coup attempt,Faction within military attempts to seize power,Coup,Reuters,True
-2017-09-03,North Korea nuclear test,North Korea conducts its sixth and most powerful nuclear test,Nuclear,Reuters,True
 2018-04-14,US UK and France strike Syria,Missile strikes in response to Douma chemical attack,Missile Strike,Reuters,True
 2019-06-20,Iran shoots down US drone,IRGC shoots down Global Hawk drone over Strait of Hormuz,Escalation,Reuters,False
 2019-10-09,Turkish offensive into Syria,Operation Peace Spring begins,Invasion,Reuters,False
-2020-02-27,Balyun airstrikes,Airstrikes in Syria kill dozens of Turkish soldiers,Airstrike,Reuters,False
 2021-02-01,Myanmar coup d'etat,Military seizes power and detains elected leaders,Coup,Reuters,False
 2022-09-26,Nord Stream pipeline sabotage,Explosions destroy underwater gas pipelines to Europe,Infrastructure Attack,Reuters,False
-2023-12-18,Operation Prosperity Guardian,US announces coalition to defend Red Sea shipping,Escalation,Reuters,False
 2024-01-11,US and UK strike Houthi targets,Retaliatory strikes against Houthi forces in Yemen,Airstrike,Reuters,True
 2014-06-29,ISIS declares caliphate,Islamic State formally announces its global caliphate,Terrorism,Reuters,True
+2015-03-26,Saudi-led intervention in Yemen,Coalition begins airstrikes against Houthi forces,Intervention,Reuters,False
+2016-09-29,Indian surgical strikes,India conducts military strikes in Pakistan-administered Kashmir,Military Action,Reuters,False
+2016-12-22,Fall of Aleppo,Syrian government forces fully recapture Aleppo from rebels,Offensive,Reuters,False
+2017-05-23,Battle of Marawi begins,Philippine military clashes with ISIS-linked militants,Urban Combat,Reuters,False
+2017-07-10,Capture of Mosul,Iraqi forces declare victory over ISIS in Mosul,Offensive,Reuters,False
+2017-08-25,Rohingya conflict escalates,Militant attacks trigger massive Myanmar military crackdown,Escalation,Reuters,False
+2018-01-20,Operation Olive Branch,Turkish military offensive into Afrin Syria,Military Operation,Reuters,True
+2018-02-10,Israel-Syria incident,Israeli F-16 shot down leading to large-scale Israeli strikes in Syria,Air Combat,Reuters,True
+2019-04-04,Battle of Tripoli begins,LNA forces launch military offensive to capture Libyan capital,Offensive,Reuters,False
+2019-10-27,Death of al-Baghdadi,ISIS leader killed during US special operations raid in Syria,Military Operation,Reuters,True
+2020-03-01,Operation Spring Shield,Turkish military operation against Syrian Armed Forces in Idlib,Military Operation,Reuters,True
+2020-06-15,Galwan Valley clash,Deadly hand-to-hand combat between Indian and Chinese border troops,Border Clash,Reuters,False
+2020-09-27,Second Nagorno-Karabakh War begins,Heavy clashes erupt between Armenia and Azerbaijan,Escalation,Reuters,True
+2020-11-04,Tigray War begins,Ethiopian military launches offensive against TPLF forces,Civil War,Reuters,False
+2020-11-13,Line of Control artillery duels,Heavy cross-border shelling kills troops and civilians between India and Pakistan,Border Clash,Reuters,False
+2020-09-27,Second Nagorno-Karabakh War,Heavy clashes erupt between Armenia and Azerbaijan,Escalation,Reuters,True
+2022-04-14,Sinking of the Moskva,Russian Black Sea flagship sunk by Ukrainian missiles,Naval Strike,Reuters,False
+2022-09-06,Kharkiv counteroffensive begins,Ukraine launches surprise offensive in northeast,Offensive,Reuters,False
+2023-04-15,Sudan conflict outbreak,Fighting erupts between SAF and RSF in Khartoum,Civil War,Reuters,True
+2023-09-19,Azerbaijani offensive,Azerbaijan launches rapid military operation in Nagorno-Karabakh,Offensive,Reuters,False
+2023-10-08,Hezbollah enters conflict,Hezbollah begins firing guided rockets into northern Israel,Escalation,Reuters,True
+2024-01-02,Assassination of Saleh al-Arouri,Senior Hamas leader killed in Beirut strike,Assassination,Reuters,False
+2024-02-17,Fall of Avdiivka,Russian forces capture strategic eastern Ukrainian city,Offensive,Reuters,True
+2024-04-19,Isfahan retaliatory strike,Israeli drones strike Iranian airbase in Isfahan,Airstrike,Reuters,False
+2024-05-06,Rafah offensive begins,IDF launches ground operation into southern Gaza,Offensive,Reuters,False
+2024-07-31,Assassination of Ismail Haniyeh,Hamas political leader killed in Tehran,Assassination,Reuters,False
+2025-06-12,IDF retaliatory strikes in southern Lebanon,Israel strikes missile launch sites across the border,Airstrike,Reuters,False
+2025-07-10,Israel strikes Iranian assets in Aleppo,Airstrikes destroy alleged weapons depots in Syria,Airstrike,Reuters,False
+2025-08-11,Rocket alert in Tel Aviv,First rockets reach central Israel in 2025 escalation,Rocket Strike,Reuters,False
+2025-12-05,M23 rebels capture Goma,DRC military forces retreat as rebels take major eastern city,Offensive,Reuters,False
+2026-01-10,Sudan RSF offensive on Port Sudan,Heavy armored fighting reaches the vital Red Sea port city,Urban Combat,Reuters,True
+2026-02-15,Arrest of Nicolas Maduro,Venezuelan military faction detains Maduro amidst widespread national uprising,Coup,Reuters,True
+2026-02-18,Clashes in Caracas,Loyalist forces battle rebel military units for control of Venezuelan capital,Civil War,Reuters,False
+2026-02-20,Myanmar junta capital besieged,Anti-coup rebel coalition launches coordinated artillery attack on Naypyidaw,Offensive,Reuters,False
+2026-03-10,Drone swarm hits Abu Dhabi airport,Operations suspended after Iranian-backed kamikaze drones strike tarmac,Drone Strike,Reuters,False
+2026-03-18,Saudi airforce strikes Houthi launch sites,Massive retaliatory bombing campaign targeting drone facilities in northern Yemen,Airstrike,Reuters,False
+2026-03-22,IRGC navy attempts tanker seizure,US Navy destroyers intervene to prevent capture of oil tanker in Gulf of Oman,Naval,Reuters,True
+2026-03-28,Iran launches ballistic missiles at Tel Aviv,Direct missile barrage from Iranian territory intercepted by Arrow 3 system,Missile Strike,Reuters,True
+2026-04-02,Israel strikes Natanz facility,Heavy bunker-buster munitions target Iranian nuclear enrichment site,Airstrike,Reuters,False
+2026-04-05,US aircraft carrier deployed to Persian Gulf,USS Gerald R. Ford strike group enters Gulf amidst severe regional escalation,Escalation,Reuters,True
+2026-04-08,Iranian missile hits Bahrain naval base,Direct strike on US Fifth Fleet headquarters perimeter,Missile Strike,Reuters,False
+2026-04-10,Joint US-Israel strikes on Bandar Abbas,Coordinated naval and air assets target IRGC coastal defense systems,Intervention,Reuters,False
+2026-04-12,UAE and Saudi joint air defense engagement,GCC forces successfully shoot down coordinated drone barrage launched from Iraq,Air Combat,Reuters,True
+2026-04-15,Iranian blockade of Strait of Hormuz attempted,IRGC Navy deploys sea mines in international shipping lanes,Naval,Reuters,False
+2026-04-18,US strikes coastal missile batteries in Iran,Tomahawk cruise missiles destroy anti-ship installations along the Makran coast,Missile Strike,Reuters,True
+2026-04-20,Oman Gulf tanker attack,Anti-ship cruise missile severely damages Kuwaiti oil tanker,Naval,Reuters,False
