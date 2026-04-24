@@ -50,7 +50,7 @@ To test if these visual differences are statistically significant, I conducted a
 - **H0 (Null Hypothesis):** Major world conflicts do not significantly affect short-term S&P 500 returns.
 - **H1 (Alternative Hypothesis):** Major world conflicts significantly affect short-term S&P 500 returns.
 
-**Results On My Test Run From 23 April 2026, In order:**
+**Results From My Test Run On 23 April 2026, In order:**
 - Event Day Mean Return: 0.3883%
 - Non-Event Day Mean Return: 0.0466%
 - T-Statistic: 2.6435
@@ -59,6 +59,10 @@ To test if these visual differences are statistically significant, I conducted a
 
 **Interpretation:**
 Based on the p-value of 0.0103, we DO reject the null hypothesis, and observe that there is a statistically significant difference in returns. This indicates that there IS a statistically significant difference in S&P 500 returns on days with major geopolitical conflicts compared to normal trading days. (With the sample size of 67 event-days.)
+
+Dividing the signal by the noise, our output for the T-Statistic is 2.6435. This means the massive spikes in the market on conflict days are 2.6435 times louder than the normal, random noise of the stock market.
+Additionally, the T-Statistic result of 2.6435 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
+
 
 
 
