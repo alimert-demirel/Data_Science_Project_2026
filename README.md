@@ -58,8 +58,11 @@ To test if these visual differences are statistically significant, I conducted a
 - Result: Reject H0. There is a statistically significant difference in returns.
 
 ==================================================
+
 TOP 10 MARKET SPIKES ON CONFLICT DAYS
+
 ==================================================
+
 #1 | 2020-03-01 | Spike: +4.60%
     Event: Operation Spring Shield
 
@@ -96,7 +99,7 @@ Based on the p-value of 0.0103, we DO reject the null hypothesis, and observe th
 Dividing the signal by the noise, our output for the T-Statistic is 2.6428. This means the massive spikes in the market on conflict days are 2.6428 times louder than the normal, random noise of the stock market.
 Additionally, the T-Statistic result of 2.6428 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
 
-**Limitations & Confounding Variables**
+**Limitations & Confounding Variables:**
 Dates such as March 2020 or November 2020 closely align with COVID-19 market panic, vaccination research efforts, and USA presidential election (3 Nov 2020). Being another driving factor for price spikes, besides conflict events.
 
 
