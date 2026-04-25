@@ -113,8 +113,34 @@ def run_hypothesis_test(df_market):
     else:
         print("Result: Fail to reject H0. No statistically significant difference in returns at the 5% level.")
 
+def print_top_10_spikes(df_market, df_events):
+    print("\n" + "="*50)
+    print("TOP 10 MARKET SPIKES ON CONFLICT DAYS")
+    print("="*50)
+    
+    # Extract just the returns and dates from the market data
+    df_market_returns = df_market[['SP500_Return']].copy()
+    df_market_returns['trading_date'] = df_market_returns.index
+    
+    # Merge the event text with the actual market return numbers
+    merged_data = pd.merge(df_events, df_market_returns, on='trading_date', how='inner')
+    
+    # Sort to find the highest spikes
+    top_10 = merged_data.sort_values(by='SP500_Return', ascending=False).head(10)
+    
+    rank = 1
+    for index, row in top_10.iterrows():
+        date_str = row['event_date'].strftime('%Y-%m-%d')
+        headline = row['headline']
+        spike_pct = row['SP500_Return']
+        
+        print(f"#{rank} | {date_str} | Spike: +{spike_pct:.2f}%")
+        print(f"    Event: {headline}\n")
+        rank += 1
+
 if __name__ == "__main__":
     market_data, event_data = load_and_prep_data()
     run_eda(market_data)
     run_hypothesis_test(market_data)
-    print("\nPipeline complete. EDA figures saved to the 'figures' directory.")
+    print_top_10_spikes(market_data, event_data)
+    print("Pipeline complete. EDA figures saved to the 'figures' directory.")
