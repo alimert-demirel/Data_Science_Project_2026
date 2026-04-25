@@ -32,7 +32,6 @@ event_date,headline,description,event_type,source,after_market_close
 2019-10-27,Death of al-Baghdadi,ISIS leader killed during US special operations raid in Syria,Military Operation,Reuters,True
 2020-03-01,Operation Spring Shield,Turkish military operation against Syrian Armed Forces in Idlib,Military Operation,Reuters,True
 2020-06-15,Galwan Valley clash,Deadly hand-to-hand combat between Indian and Chinese border troops,Border Clash,Reuters,False
-2020-09-27,Second Nagorno-Karabakh War begins,Heavy clashes erupt between Armenia and Azerbaijan,Escalation,Reuters,True
 2020-11-04,Tigray War begins,Ethiopian military launches offensive against TPLF forces,Civil War,Reuters,False
 2020-11-13,Line of Control artillery duels,Heavy cross-border shelling kills troops and civilians between India and Pakistan,Border Clash,Reuters,False
 2020-09-27,Second Nagorno-Karabakh War,Heavy clashes erupt between Armenia and Azerbaijan,Escalation,Reuters,True
