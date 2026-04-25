@@ -57,13 +57,47 @@ To test if these visual differences are statistically significant, I conducted a
 - P-Value: 0.0103
 - Result: Reject H0. There is a statistically significant difference in returns.
 
+==================================================
+TOP 10 MARKET SPIKES ON CONFLICT DAYS
+==================================================
+#1 | 2020-03-01 | Spike: +4.60%
+    Event: Operation Spring Shield
+
+#2 | 2026-04-08 | Spike: +2.51%
+    Event: Iranian missile hits Bahrain naval base
+
+#3 | 2020-11-04 | Spike: +2.20%
+    Event: Tigray War begins
+
+#4 | 2015-09-30 | Spike: +1.91%
+    Event: Russian military intervention in Syria
+
+#5 | 2020-09-27 | Spike: +1.61%
+    Event: Second Nagorno-Karabakh War
+
+#6 | 2021-02-01 | Spike: +1.61%
+    Event: Myanmar coup d'etat
+
+#7 | 2024-07-31 | Spike: +1.58%
+    Event: Assassination of Ismail Haniyeh
+
+#8 | 2022-02-24 | Spike: +1.50%
+    Event: Russia invades Ukraine
+
+#9 | 2018-02-10 | Spike: +1.39%
+    Event: Israel-Syria incident
+
+#10 | 2020-11-13 | Spike: +1.36%
+    Event: India-Pakistan Line of Control artillery duels
+
 **Interpretation:**
 Based on the p-value of 0.0103, we DO reject the null hypothesis, and observe that there is a statistically significant difference in returns. This indicates that there IS a statistically significant difference in S&P 500 returns on days with major geopolitical conflicts compared to normal trading days. (With the sample size of 66 event-days.)
 
 Dividing the signal by the noise, our output for the T-Statistic is 2.6428. This means the massive spikes in the market on conflict days are 2.6428 times louder than the normal, random noise of the stock market.
 Additionally, the T-Statistic result of 2.6428 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
 
-
+**Limitations & Confounding Variables**
+Dates such as March 2020 or November 2020 closely align with COVID-19 market panic, vaccination research efforts, and USA presidential election (3 Nov 2020). Being another driving factor for price spikes, besides conflict events.
 
 
 ## AI Tool Usage Disclosure
