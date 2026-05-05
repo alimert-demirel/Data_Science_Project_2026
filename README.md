@@ -3,7 +3,7 @@
 **Course:** DSA 210 Introduction to Data Science (Spring 2025-2026)  
 
 ## Project Overview
-This project investigates whether major geopolitical conflicts significantly impact the short-term returns of the S&P 500. By aligning historical conflict events (gathered from verified sources like Reuters and ACLED) with daily market data from FRED, this analysis utilizes Exploratory Data Analysis (EDA), ML Clustering Categorization and statistical hypothesis testing to identify patterns in market volatility.
+This project investigates whether major geopolitical conflicts significantly impact the short-term returns of the S&P 500. By aligning historical conflict events (gathered from verified sources like Reuters and ACLED) with daily market data from FRED, this analysis utilizes Exploratory Data Analysis (EDA), Unsupervised ML K-Means Clustering (Categorization) and statistical hypothesis testing to identify patterns in market volatility.
 
 ## Data Collection & Preprocessing
 - **Sources:** S&P 500 and VIX daily data were pulled directly from the FRED API. Conflict events were manually compiled into `events.csv` from verified news sources.
@@ -44,7 +44,7 @@ This boxplot compares the distribution of daily returns on standard trading days
 *EDA Interpretation:* Looking at the visualizations, the market maintains a relatively stable variance on standard days, but event days may exhibit different clustering or outlier behavior depending on the severity of the news.
 
 
-### 4. (Machine Learning) Market Regime Clustering Using ML
+### 4. (Machine Learning) Market Regime Categorization Using Unsupervised ML Clustering (K-Means)
 To move beyond basic statistical testing, this project utilizes **Unsupervised Machine Learning (K-Means Clustering)** to categorize the stock market into distinct "regimes" or phases. 
 
 The algorithm was fed two features for every trading day since 2013: the **S&P 500 Daily Return (%)** and the **VIX (Volatility/Fear Index)**. The model was completely blind to our geopolitical events and was simply instructed to find three mathematical groupings in the data.
