@@ -18,7 +18,7 @@ NOTE: The "Non-Event" category contains the daily returns for almost every singl
 ## How to Run the Analysis
 1. Clone this repository.
 2. Install dependencies: `pip install -r requirements.txt`
-   - if that fails, run this: `pip install pandas numpy matplotlib seaborn scipy pandas-datareader yfinance` and if necessary: `pip install setuptools`
+   - if that fails, run this: `pip install pandas numpy matplotlib seaborn scipy pandas-datareader yfinance scikit-learn` and if necessary: `pip install setuptools`
 4. Run the script: `python analysis_script.py`
 
 NOTE: EDA visualizations will be automatically saved to the newly generated /figures folder.
