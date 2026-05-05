@@ -25,7 +25,7 @@ NOTE: EDA and ML visualizations will be automatically saved to the newly generat
 
 
 
-## Exploratory Data Analysis (EDA) and ML Clusters for VIX Volatility/Fear Gauge
+## Exploratory Data Analysis (EDA), Unsupervised ML Clustering (K-Means) for VIX Volatility/Fear Gauge and Supervised Machine Learning (Random Forest & SMOTE)
 To understand the baseline behavior of the market and how it behaves around conflicts, I plotted the following distributions.
 
 
