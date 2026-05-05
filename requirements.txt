@@ -7,3 +7,4 @@ pandas-datareader
 yfinance
 setuptools
 scikit-learn
+imbalanced-learn
