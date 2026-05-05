@@ -33,7 +33,7 @@ event_date,headline,description,event_type,source,after_market_close
 2020-03-01,Operation Spring Shield,Turkish military operation against Syrian Armed Forces in Idlib,Military Operation,Reuters,True
 2020-06-15,Galwan Valley clash,Deadly hand-to-hand combat between Indian and Chinese border troops,Border Clash,Reuters,False
 2020-11-04,Tigray War begins,Ethiopian military launches offensive against TPLF forces,Civil War,Reuters,False
-2020-11-13,Line of Control artillery duels,Heavy cross-border shelling kills troops and civilians between India and Pakistan,Border Clash,Reuters,False
+2020-11-13,India-Pakistan Line of Control artillery duels,Heavy cross-border shelling kills troops and civilians between India and Pakistan,Border Clash,Reuters,False
 2020-09-27,Second Nagorno-Karabakh War,Heavy clashes erupt between Armenia and Azerbaijan,Escalation,Reuters,True
 2022-04-14,Sinking of the Moskva,Russian Black Sea flagship sunk by Ukrainian missiles,Naval Strike,Reuters,False
 2022-09-06,Kharkiv counteroffensive begins,Ukraine launches surprise offensive in northeast,Offensive,Reuters,False
@@ -65,3 +65,7 @@ event_date,headline,description,event_type,source,after_market_close
 2026-04-15,Iranian blockade of Strait of Hormuz attempted,IRGC Navy deploys sea mines in international shipping lanes,Naval,Reuters,False
 2026-04-18,US strikes coastal missile batteries in Iran,Tomahawk cruise missiles destroy anti-ship installations along the Makran coast,Missile Strike,Reuters,True
 2026-04-20,Oman Gulf tanker attack,Anti-ship cruise missile severely damages Kuwaiti oil tanker,Naval,Reuters,False
+2025-08-22,Ukraine strikes Crimean Bridge,Coordinated naval drones and ATACMS strike causes partial collapse of the Kerch bridge,Missile Strike,ACLED,True
+2025-10-12,Massive Russian drone swarm targets Kyiv energy grid,Over 100 Shahed drones launched at civilian power infrastructure causing winter blackouts,Airstrike,ACLED,False
+2026-04-26,IRGC fast-attack craft attack commercial shipping,Multiple Iranian patrol boats conduct aggressive maneuvers around tankers in Hormuz,Naval,ACLED,False
+2026-05-03,South Korean oil tanker struck by limpet mines,Explosions severely damage the MT Hankuk Chemi in the Strait of Hormuz amid rising tensions,Naval,ACLED,False
