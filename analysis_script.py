@@ -6,6 +6,8 @@ from scipy import stats
 import yfinance as yf
 import datetime
 import os
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
 # Create figures directory
 if not os.path.exists('figures'):
@@ -138,9 +140,57 @@ def print_top_10_spikes(df_market, df_events):
         print(f"    Event: {headline}\n")
         rank += 1
 
+def run_ml_clustering(df_market):
+    print("\nRunning ML K-Means Clustering...")
+    
+    # Prepare data
+    ml_data = df_market[['SP500_Return', 'VIXCLS']].dropna().copy()
+    
+    # Scale data 
+    scaler = StandardScaler()
+    scaled_data = scaler.fit_transform(ml_data)
+    
+    # Run the K-Means algorithm to find 3 market regimes
+    kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
+    ml_data['Cluster'] = kmeans.fit_predict(scaled_data)
+    
+    # Add our event flag back in
+    ml_data['Is_Event_Day'] = df_market.loc[ml_data.index, 'Is_Event_Day']
+    
+    # --- NEW PLOTTING LOGIC ---
+    plt.figure(figsize=(10, 6))
+    
+    # 1. Plot the "Normal" days first, slightly faded so the events stand out
+    normal_days = ml_data[~ml_data['Is_Event_Day']]
+    sns.scatterplot(
+        x='VIXCLS', y='SP500_Return', 
+        hue='Cluster', palette='viridis', data=normal_days, 
+        s=60, alpha=0.3, legend='full'
+    )
+    
+    # 2. Plot the "Event" days on top in BRIGHT RED
+    event_days = ml_data[ml_data['Is_Event_Day']]
+    plt.scatter(
+        event_days['VIXCLS'], event_days['SP500_Return'], 
+        color='red', marker='X', s=120, edgecolor='black', 
+        label='Conflict Event', zorder=5
+    )
+    
+    plt.title('ML Market Regimes: S&P 500 Returns vs VIX (Fear Gauge)')
+    plt.xlabel('VIX (Market Volatility)')
+    plt.ylabel('S&P 500 Daily Return (%)')
+    
+    # Fix the legend so it includes the red X
+    plt.legend(loc='lower right')
+    
+    plt.savefig('figures/ml_clusters.png')
+    plt.close()
+    print("ML Clustering complete. Saved to 'figures/ml_clusters.png'")
+
 if __name__ == "__main__":
     market_data, event_data = load_and_prep_data()
     run_eda(market_data)
     run_hypothesis_test(market_data)
     print_top_10_spikes(market_data, event_data)
+    run_ml_clustering(market_data)
     print("Pipeline complete. EDA figures saved to the 'figures' directory.")
