@@ -11,7 +11,7 @@ This project investigates whether major geopolitical conflicts significantly imp
   - Aligned event dates with trading days. If an event happened on a weekend or market holiday, it was shifted to the next available trading day.
   - If an event occurred after market close, the following trading day was treated as the first reaction day.
 
-NOTE: The "Non-Event" category contains the daily returns for almost every single trading day from 2013 until today, and CSV file containing event days have a number of 66 (it was expanded from 30, minimally to satisfy the Central Limit Theorem) registered days as of 25 April 2026 (most recent event input), and the sample size will be expanded further.
+NOTE: The "Non-Event" category contains the daily returns for almost every single trading day from 2013 until today, and CSV file containing event days have a number of 70 (it was expanded from 30, minimally to satisfy the Central Limit Theorem) registered days as of 5 May 2026 (most recent event input), and the sample size will be expanded further.
 
 
 
@@ -21,11 +21,11 @@ NOTE: The "Non-Event" category contains the daily returns for almost every singl
    - if that fails, run this: `pip install pandas numpy matplotlib seaborn scipy pandas-datareader yfinance scikit-learn` and if necessary: `pip install setuptools`
 4. Run the script: `python analysis_script.py`
 
-NOTE: EDA visualizations will be automatically saved to the newly generated /figures folder.
+NOTE: EDA and ML visualizations will be automatically saved to the newly generated /figures folder.
 
 
 
-## Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA) and ML Clusters for VIX Volatility/Fear Gauge
 To understand the baseline behavior of the market and how it behaves around conflicts, I plotted the following distributions.
 
 ### 1. S&P 500 Price Series
@@ -43,6 +43,28 @@ This boxplot compares the distribution of daily returns on standard trading days
 *EDA Interpretation:* Looking at the visualizations, the market maintains a relatively stable variance on standard days, but event days may exhibit different clustering or outlier behavior depending on the severity of the news.
 
 
+### 4. (Machine Learning) Market Regime Clustering Using ML
+To move beyond basic statistical testing, this project utilizes **Unsupervised Machine Learning (K-Means Clustering)** to categorize the stock market into distinct "regimes" or phases. 
+
+The algorithm was fed two features for every trading day since 2013: the **S&P 500 Daily Return (%)** and the **VIX (Volatility/Fear Index)**. The model was completely blind to our geopolitical events and was simply instructed to find three mathematical groupings in the data.
+
+![Market Regime Clusters](figures/ml_clusters.png)
+
+### The Three Market Regimes (Clusters)
+The ML model successfully separated the market into three distinct realities:
+* **Cluster 0 (Purple - "Business as Usual"):** Days with low market fear (VIX < 20) and tight, minor price movements around 0%. 
+* **Cluster 1 (Teal - "High-Fear Rallies"):** Days where fear is highly elevated, but the market actually pushes upward (positive returns). 
+* **Cluster 2 (Yellow - "Panic Sell-offs"):** Days with high fear accompanied by steep market crashes (negative returns).
+* **RED X's:** Conflict Event Days. 
+
+### Key Findings & Geopolitical Impact
+After the ML algorithm defined these regimes, we overlaid our Geopolitical Conflict Days (**Red X's**) to see how they behave. The results visually confirm our hypothesis:
+
+1. **Conflicts Avoid Crashes:** There is a near-total absence of conflict events in the "Panic Sell-off" (Yellow) zone. This proves that while wars cause human tragedy, they rarely trigger systemic US market crashes.
+2. **The Upward Volatility Drift:** The conflict events heavily populate the "Business as Usual" zone but frequently drift upward into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.
+
+
+
 
 ## Hypothesis Testing
 To test if these visual differences are statistically significant, I conducted a two-sample t-test (equal variance not assumed).
@@ -50,11 +72,11 @@ To test if these visual differences are statistically significant, I conducted a
 - **H0 (Null Hypothesis):** Major world conflicts do not significantly affect short-term S&P 500 returns.
 - **H1 (Alternative Hypothesis):** Major world conflicts significantly affect short-term S&P 500 returns.
 
-**Results From My Test Run On 25 April 2026, In order:**
-- Event Day Mean Return: 0.3883%
-- Non-Event Day Mean Return: 0.0467%
-- T-Statistic: 2.6428
-- P-Value: 0.0103
+**Results From My Test Run On 5 May 2026, In order:**
+- Event Day Mean Return: 0.3779%
+- Non-Event Day Mean Return: 0.0466%
+- T-Statistic: 2.6683
+- P-Value: 0.0095
 - Result: Reject H0. There is a statistically significant difference in returns.
 
 ==================================================
@@ -84,20 +106,21 @@ TOP 10 MARKET SPIKES ON CONFLICT DAYS
 #7 | 2024-07-31 | Spike: +1.58%
     Event: Assassination of Ismail Haniyeh
 
-#8 | 2022-02-24 | Spike: +1.50%
+#8 | 2025-10-12 | Spike: +1.56%
+    Event: Massive Russian drone swarm targets Kyiv energy grid
+
+#9 | 2022-02-24 | Spike: +1.50%
     Event: Russia invades Ukraine
 
-#9 | 2018-02-10 | Spike: +1.39%
+#10 | 2018-02-10 | Spike: +1.39%
     Event: Israel-Syria incident
 
-#10 | 2020-11-13 | Spike: +1.36%
-    Event: India-Pakistan Line of Control artillery duels
-
+    
 **Interpretation:**
-Based on the p-value of 0.0103, we DO reject the null hypothesis, and observe that there is a statistically significant difference in returns. This indicates that there IS a statistically significant difference in S&P 500 returns on days with major geopolitical conflicts compared to normal trading days. (With the sample size of 66 event-days.)
+Based on the p-value of 0.0095, we DO reject the null hypothesis, and observe that there is a statistically significant difference in returns. This indicates that there IS a statistically significant difference in S&P 500 returns on days with major geopolitical conflicts compared to normal trading days. (With the sample size of 70 event-days.)
 
-Dividing the signal by the noise, our output for the T-Statistic is 2.6428. This means the massive spikes in the market on conflict days are 2.6428 times louder than the normal, random noise of the stock market.
-Additionally, the T-Statistic result of 2.6428 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
+Dividing the signal by the noise, our output for the T-Statistic is 2.6683. This means the massive spikes in the market on conflict days are 2.6683 times louder than the normal, random noise of the stock market.
+Additionally, the T-Statistic result of 2.6683 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
 
 **Limitations & Confounding Variables:**
 Dates such as March 2020 or November 2020 closely align with COVID-19 market panic, vaccination research efforts, and USA presidential election (3 Nov 2020). Being another driving factor for price spikes, besides conflict events.
