@@ -73,6 +73,13 @@ Initially, the model suffered from severe class imbalance (658 Normal Days vs. 1
 
 **Results after SMOTE:**
 ![Supervised ML Predictions](figures/supervised_confusion_matrix.png)
+(WILL BE REVISED AND IMPROVED)
+
+Top-Left (True Negative): The day was actually Normal, and the model CORRECTLY predicted "Normal." It successfully ignored a usual day in the market.
+Top-Right (False Positive): The day was actually Normal, but the model INCORRECTLY predicted "Event Day." The model got alerted by normal market volatility and thought a conflict happened.
+
+Bottom-Left (False Negative): The day was actually an Event Day, but the model INCORRECTLY predicted "Normal Day." This is a miss. A conflict happened, but the model did not notice.
+Bottom-Right (True Positive): The day was actually an Event Day, and the model CORRECTLY predicted "Event Day." The algorithm successfully detected the exact mathematical signature of a geopolitical conflict.
 
 * **Successful Predictions:** The model successfully identified actual Event Days that it previously ignored.
 * **False Positives (The "Paranoid Radar"):** The model misclassified 152 normal days as Event Days. 
