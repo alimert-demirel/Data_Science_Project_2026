@@ -8,6 +8,10 @@ import datetime
 import os
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, ConfusionMatrixDisplay
+from imblearn.over_sampling import SMOTE
 
 # Create figures directory
 if not os.path.exists('figures'):
@@ -187,10 +191,50 @@ def run_ml_clustering(df_market):
     plt.close()
     print("ML Clustering complete. Saved to 'figures/ml_clusters.png'")
 
+def run_supervised_ml(df_market):
+    print("\nRunning Supervised ML with SMOTE...")
+    
+    # 1. Prepare the Data
+    ml_data = df_market[['SP500_Return', 'VIXCLS', 'Is_Event_Day']].dropna()
+    X = ml_data[['SP500_Return', 'VIXCLS']]
+    y = ml_data['Is_Event_Day'].astype(int)
+    
+    # 2. Split into Training Data and Testing Data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    # 3. Apply SMOTE ONLY to the training data
+    print("Synthesizing new Event Days using SMOTE...")
+    smote = SMOTE(random_state=42)
+    X_train_smote, y_train_smote = smote.fit_resample(X_train, y_train)
+    
+    # 4. Train the Model on the new, balanced data
+    rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+    rf_model.fit(X_train_smote, y_train_smote)
+    
+    # 5. Make Predictions on the UNSEEN Test Data
+    y_pred = rf_model.predict(X_test)
+    
+    # 6. Evaluate and Visualize
+    print("\nModel Evaluation (After SMOTE):")
+    print(classification_report(y_test, y_pred, target_names=['Normal Day', 'Event Day']))
+    
+    plt.figure(figsize=(7, 6))
+    ConfusionMatrixDisplay.from_estimator(
+        rf_model, X_test, y_test,
+        display_labels=['Normal Day', 'Event Day'], 
+        cmap='Blues', colorbar=False
+    )
+    plt.title("Supervised ML: Predictions (With SMOTE)")
+    plt.savefig('figures/supervised_confusion_matrix.png')
+    plt.close()
+    
+    print("Supervised ML complete. Saved to 'figures/supervised_confusion_matrix.png'")
+
 if __name__ == "__main__":
     market_data, event_data = load_and_prep_data()
     run_eda(market_data)
     run_hypothesis_test(market_data)
     print_top_10_spikes(market_data, event_data)
     run_ml_clustering(market_data)
+    run_supervised_ml(market_data)
     print("Pipeline complete. EDA figures saved to the 'figures' directory.")
