@@ -106,9 +106,15 @@ To test if these visual differences are statistically significant, I conducted a
 - P-Value: 0.0095
 - Result: Reject H0. There is a statistically significant difference in returns.
 
+**Interpretation:**
+Based on the p-value of 0.0095, we DO reject the null hypothesis, and observe that there is a statistically significant difference in returns. This indicates that there IS a statistically significant difference in S&P 500 returns on days with major geopolitical conflicts compared to normal trading days. (With the sample size of 70 event-days.)
+
+Dividing the signal by the noise, our output for the T-Statistic is 2.6683. This means the massive spikes in the market on conflict days are 2.6683 times louder than the normal, random noise of the stock market.
+Additionally, the T-Statistic result of 2.6683 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
+
 ==================================================
 
-TOP 10 MARKET SPIKES ON CONFLICT DAYS
+TOP 10 MARKET SPIKES ON CONFLICT DAYS (5 May 2026 Output)
 
 ==================================================
 
@@ -142,12 +148,30 @@ TOP 10 MARKET SPIKES ON CONFLICT DAYS
 #10 | 2018-02-10 | Spike: +1.39%
     Event: Israel-Syria incident
 
-    
-**Interpretation:**
-Based on the p-value of 0.0095, we DO reject the null hypothesis, and observe that there is a statistically significant difference in returns. This indicates that there IS a statistically significant difference in S&P 500 returns on days with major geopolitical conflicts compared to normal trading days. (With the sample size of 70 event-days.)
+---------------------------------------    
 
-Dividing the signal by the noise, our output for the T-Statistic is 2.6683. This means the massive spikes in the market on conflict days are 2.6683 times louder than the normal, random noise of the stock market.
-Additionally, the T-Statistic result of 2.6683 pushes past the +2.0 threshold, proving what is observed in the means: major geopolitical conflicts are causing the S&P 500 to significantly spike on the days they occur.
+    
+
+Model Classification Report (Post-SMOTE)  (5 May 2026 Output)
+
+This is the output generated for the evaluation of the Random Forest model. (A classification report based on the testing dataset, 20% of the total data).
+
+```text
+Running Supervised ML with SMOTE...
+Synthesizing new Event Days using SMOTE...
+
+Model Evaluation (After SMOTE):
+              precision    recall  f1-score   support
+
+  Normal Day       0.98      0.77      0.86       658
+   Event Day       0.01      0.15      0.02        13
+
+    accuracy                           0.76       671
+   macro avg       0.50      0.46      0.44       671
+weighted avg       0.96      0.76      0.85       671
+```
+
+-----------------------------------------
 
 **Limitations & Confounding Variables:**
 Dates such as March 2020 or November 2020 closely align with COVID-19 market panic, vaccination research efforts, and USA presidential election (3 Nov 2020). Being another driving factor for price spikes, besides conflict events.
