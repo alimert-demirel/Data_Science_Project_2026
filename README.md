@@ -3,7 +3,7 @@
 **Course:** DSA 210 Introduction to Data Science (Spring 2025-2026)  
 
 ## Project Overview
-This project investigates whether major geopolitical conflicts significantly impact the short-term returns of the S&P 500. By aligning historical conflict events (gathered from verified sources like Reuters and ACLED) with daily market data from FRED, this analysis utilizes Exploratory Data Analysis (EDA), Unsupervised ML K-Means Clustering (Categorization) and statistical hypothesis testing to identify patterns in market volatility.
+This project investigates whether major geopolitical conflicts significantly impact the short-term returns of the S&P 500. By aligning historical conflict events (gathered from verified sources like Reuters and ACLED) with daily market data from FRED, this analysis utilizes Exploratory Data Analysis (EDA), Unsupervised ML K-Means Clustering (Categorization), Supervised ML (Random Forest and SMOTE) and statistical hypothesis testing to identify patterns in market volatility.
 
 ## Data Collection & Preprocessing
 - **Sources:** S&P 500 and VIX daily data were pulled directly from the FRED API. Conflict events were manually compiled into `events.csv` from verified news sources.
@@ -18,7 +18,7 @@ NOTE: The "Non-Event" category contains the daily returns for almost every singl
 ## How to Run the Analysis
 1. Clone this repository.
 2. Install dependencies: `pip install -r requirements.txt`
-   - if that fails, run this: `pip install pandas numpy matplotlib seaborn scipy pandas-datareader yfinance scikit-learn` and if necessary: `pip install setuptools`
+   - if that fails, run this: `pip install pandas numpy matplotlib seaborn scipy pandas-datareader yfinance scikit-learn imbalanced-learn` and if necessary: `pip install setuptools`
 4. Run the script: `python analysis_script.py`
 
 NOTE: EDA and ML visualizations will be automatically saved to the newly generated /figures folder.
@@ -65,6 +65,20 @@ After the ML algorithm defined these regimes, we overlaid our Geopolitical Confl
 1. **Conflicts Avoid Crashes:** There is a lack of conflict events observed in the "Panic Sell-off" (Yellow) zone compared to others. This proves that while wars cause human tragedy, they rarely cause downwards US market crashes.
 2. **The Upward Volatility Drift:** The conflict events mostly populate the "Business as Usual" (Purple) zone but frequently drift and incline upwards into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.
 
+
+### 5. Supervised Machine Learning & Addressing Class Imbalance (SMOTE)
+To test the predictive limits of the dataset, I have implemented a **Random Forest Classifier** to see if the algorithm could predict an "Event Day" strictly by looking at the S&P 500 Return and VIX. 
+
+Initially, the model suffered from severe class imbalance (658 Normal Days vs. 13 Event Days in the test set), resulting in the model predicting the majority class ("Normal Day") 100% of the time. To correct this, I applied **SMOTE (Synthetic Minority Over-sampling Technique)** exclusively to the training data to synthesize the minority class and force the model to identify the mathematical signature of a conflict day.
+
+**Results after SMOTE:**
+![Supervised ML Predictions](figures/supervised_confusion_matrix.png)
+
+* **Successful Predictions:** The model successfully identified actual Event Days that it previously ignored.
+* **False Positives (The "Paranoid Radar"):** The model misclassified 152 normal days as Event Days. 
+
+**Conclusion:** 
+This outcome perfectly encapsulates the reality of macroeconomic forecasting. SMOTE successfully forced the model to recognize the "fear signature" of a conflict. However, the high rate of False Positives proves that the stock market's features (VIX and Returns) overlap heavily with other macroeconomic factors. An interest rate hike can cause the exact same volatility spike as a kinetic military strike. Ultimately, this pipeline proves that while geopolitical conflicts reliably generate market volatility, volatility alone is not a uniquely isolated feature capable of predicting conflicts.
 
 
 
