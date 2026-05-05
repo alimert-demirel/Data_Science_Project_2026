@@ -3,7 +3,7 @@
 **Course:** DSA 210 Introduction to Data Science (Spring 2025-2026)  
 
 ## Project Overview
-This project investigates whether major geopolitical conflicts significantly impact the short-term returns of the S&P 500. By aligning historical conflict events (gathered from verified sources like Reuters and ACLED) with daily market data from FRED, this analysis utilizes Exploratory Data Analysis (EDA) and statistical hypothesis testing to identify patterns in market volatility.
+This project investigates whether major geopolitical conflicts significantly impact the short-term returns of the S&P 500. By aligning historical conflict events (gathered from verified sources like Reuters and ACLED) with daily market data from FRED, this analysis utilizes Exploratory Data Analysis (EDA), ML Clustering Categorization and statistical hypothesis testing to identify patterns in market volatility.
 
 ## Data Collection & Preprocessing
 - **Sources:** S&P 500 and VIX daily data were pulled directly from the FRED API. Conflict events were manually compiled into `events.csv` from verified news sources.
@@ -27,6 +27,7 @@ NOTE: EDA and ML visualizations will be automatically saved to the newly generat
 
 ## Exploratory Data Analysis (EDA) and ML Clusters for VIX Volatility/Fear Gauge
 To understand the baseline behavior of the market and how it behaves around conflicts, I plotted the following distributions.
+
 
 ### 1. S&P 500 Price Series
 This graph shows the overall macro-trend of the S&P 500 over our timeline. 
@@ -60,8 +61,8 @@ The ML model successfully separated the market into three distinct realities:
 ### Key Findings & Geopolitical Impact
 After the ML algorithm defined these regimes, we overlaid our Geopolitical Conflict Days (**Red X's**) to see how they behave. The results visually confirm our hypothesis:
 
-1. **Conflicts Avoid Crashes:** There is a near-total absence of conflict events in the "Panic Sell-off" (Yellow) zone. This proves that while wars cause human tragedy, they rarely trigger systemic US market crashes.
-2. **The Upward Volatility Drift:** The conflict events heavily populate the "Business as Usual" zone but frequently drift upward into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.
+1. **Conflicts Avoid Crashes:** There is a lack of conflict events observed in the "Panic Sell-off" (Yellow) zone compared to others. This proves that while wars cause human tragedy, they rarely cause downwards US market crashes.
+2. **The Upward Volatility Drift:** The conflict events mostly populate the "Business as Usual" (Purple) zone but frequently drift and incline upwards into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.
 
 
 
