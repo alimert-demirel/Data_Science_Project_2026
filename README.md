@@ -60,12 +60,12 @@ The ML model successfully separated the market into three distinct realities:
 **RED X's:** Conflict Event Days were not added by the K-Means ML algorithm, but by the Python script for comparison.
 
 ### Key Findings & Geopolitical Impact
-After the ML algorithm defined these regimes, we overlaid our Geopolitical Conflict Days (**Red X's**) to see how they behave. The results visually confirm our hypothesis:
+After the ML algorithm defined these regimes, I have overlaid the Geopolitical Conflict Days (**Red X's**) to see how they behave. The results visually confirm my hypothesis:
 
 1. **Conflicts Avoid Crashes:** There is a lack of conflict events observed in the "Panic Sell-off" (Yellow) zone compared to others. This proves that while wars cause human tragedy, they rarely cause downwards US market crashes.
 2. **The Upward Volatility Drift:** The conflict events mostly populate the "Business as Usual" (Purple) zone but frequently drift and incline upwards into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.
 
-
+   
 ### 5. Supervised Machine Learning & Addressing Class Imbalance (SMOTE)
 To test the predictive limits of the dataset, I have implemented a **Random Forest Classifier** to see if the algorithm could predict an "Event Day" strictly by looking at the S&P 500 Return and VIX. 
 
