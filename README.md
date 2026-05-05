@@ -56,7 +56,8 @@ The ML model successfully separated the market into three distinct realities:
 * **Cluster 0 (Purple - "Business as Usual"):** Days with low market fear (VIX < 20) and tight, minor price movements around 0%. 
 * **Cluster 1 (Teal - "High-Fear Rallies"):** Days where fear is highly elevated, but the market actually pushes upward (positive returns). 
 * **Cluster 2 (Yellow - "Panic Sell-offs"):** Days with high fear accompanied by steep market crashes (negative returns).
-* **RED X's:** Conflict Event Days. 
+
+**RED X's:** Conflict Event Days were not added by the K-Means ML algorithm, but by the Python script for comparison.
 
 ### Key Findings & Geopolitical Impact
 After the ML algorithm defined these regimes, we overlaid our Geopolitical Conflict Days (**Red X's**) to see how they behave. The results visually confirm our hypothesis:
