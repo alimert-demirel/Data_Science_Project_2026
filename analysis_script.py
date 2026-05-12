@@ -243,6 +243,79 @@ def run_ml_clustering(df_market):
     plt.close()
     print("ML Clustering complete. Saved to 'figures/ml_clusters.png'")
 
+def save_transition_heatmap(matrix, title, filename):
+    """
+    Generates and saves a heatmap visualization of a transition matrix.
+    """
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(matrix, annot=True, cmap='viridis', fmt='.2f', cbar_kws={'label': 'Probability'})
+    plt.title(title)
+    plt.xlabel('Vol Regime Tomorrow (t+1)')
+    plt.ylabel('Vol Regime Today (t)')
+    
+    # Ensure the 'figures' directory exists
+    os.makedirs('figures', exist_ok=True)
+    
+    # Save the heatmap image
+    plt.savefig(f'figures/{filename}')
+    plt.close()
+    print(f"Heatmap '{title}' saved to 'figures/{filename}'.")
+
+def calculate_markov_matrix(df_market):
+    print("\nCalculating 3x3 Markov Transition Matrices...")
+    
+    # 1. Grab the necessary columns and drop missing values
+    ml_data = df_market[['VIXCLS', 'Is_Event_Day']].dropna().copy()
+    
+    # 2. Run a 3-state K-Means just for this Markov analysis
+    X = ml_data[['VIXCLS']]
+    kmeans = KMeans(n_clusters=3, random_state=42)
+    ml_data['Raw_Cluster'] = kmeans.fit_predict(X)
+    
+    # 3. Force consistent sorting (0 = Low Vol, 1 = Med Vol, 2 = High Vol)
+    # This prevents the "color flipping" issue you noticed earlier!
+    cluster_means = ml_data.groupby('Raw_Cluster')['VIXCLS'].mean().sort_values()
+    mapping = {cluster_id: ordered_id for ordered_id, cluster_id in enumerate(cluster_means.index)}
+    ml_data['State'] = ml_data['Raw_Cluster'].map(mapping)
+    
+    # 4. Initialize our two empty 3x3 tables
+    peace_matrix = np.zeros((3, 3))
+    conflict_matrix = np.zeros((3, 3))
+    
+    # 5. Count the daily transitions
+    states = ml_data['State'].values
+    is_event = ml_data['Is_Event_Day'].values
+    
+    for i in range(len(states) - 1):
+        current_state = states[i]
+        next_state = states[i+1]
+        
+        # If today or tomorrow is an Event Day, it goes in the Conflict table
+        if is_event[i] == True or is_event[i+1] == True:
+            conflict_matrix[current_state][next_state] += 1
+        else: # Otherwise, it goes in the Peace table
+            peace_matrix[current_state][next_state] += 1
+            
+    # 6. Convert counts to percentages (Row Normalization)
+    row_sums_peace = peace_matrix.sum(axis=1, keepdims=True)
+    peace_probs = np.divide(peace_matrix, row_sums_peace, out=np.zeros_like(peace_matrix), where=row_sums_peace!=0)
+    
+    row_sums_conflict = conflict_matrix.sum(axis=1, keepdims=True)
+    conflict_probs = np.divide(conflict_matrix, row_sums_conflict, out=np.zeros_like(conflict_matrix), where=row_sums_conflict!=0)
+    
+    # 7. Print the results to the terminal
+    print("\n--- Peace Time Transition Probabilities ---")
+    print(np.round(peace_probs, 2))
+    
+    print("\n--- Conflict Time Transition Probabilities ---")
+    print(np.round(conflict_probs, 2))
+
+    # 8. Save the Heatmap Images to the 'figures' folder
+    save_transition_heatmap(peace_probs, "Peace Time Transition Probabilities", "peace_transition_heatmap.png")
+    save_transition_heatmap(conflict_probs, "Conflict Time Transition Probabilities", "conflict_transition_heatmap.png")
+    
+    return peace_probs, conflict_probs
+
 def run_supervised_ml(df_market):
     print("\nRunning Supervised ML with SMOTE...")
     
@@ -290,5 +363,6 @@ if __name__ == "__main__":
     market_data = apply_lagrange_interpolation(market_data)
     market_data = apply_simpsons_rule(market_data)
     run_ml_clustering(market_data)
+    peace_probs, conflict_probs = calculate_markov_matrix(market_data)
     run_supervised_ml(market_data)
     print("Pipeline complete. EDA figures saved to the 'figures' directory.")
