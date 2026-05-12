@@ -205,6 +205,32 @@ Model Evaluation (After SMOTE):
 weighted avg       0.97      0.80      0.87       672
 ```
 
+
+
+### Markov Chains Volatility Regime Modeling
+Using K-Means clustering, the market was divided into three volatility states: **Low (0)**, **Medium (1)**, and **High (2)**. To measure how geopolitical conflicts alter market memory, we treated the market as a Stochastic Process and calculated **Markov Transition Probabilities** for both normal conditions and conflict days.  
+
+#### Heatmaps
+![Peace Time Heatmap](figures/peace_transition_heatmap.png)
+![Conflict Time Heatmap](figures/conflict_transition_heatmap.png)  
+
+
+**Peace Time vs. Conflict Time Matrices:**
+
+| Vol Regime (Today $\rightarrow$ Tomorrow) | Low Vol (0) | Med Vol (1) | High Vol (2) |
+| :--- | :---: | :---: | :---: |
+| **Peace: Starts in Low Vol** | 0.96 | 0.04 | 0.00 |
+| **Peace: Starts in Med Vol** | 0.12 | 0.87 | 0.01 |
+| **Peace: Starts in High Vol**| 0.00 | 0.21 | 0.79 |
+| | | | |
+| **Conflict: Starts in Low Vol** | 0.97 | 0.03 | 0.00 |
+| **Conflict: Starts in Med Vol** | 0.11 | 0.87 | 0.02 |
+| **Conflict: Starts in High Vol**| 0.00 | 1.00 | 0.00 |
+
+*(Note: The 1.00 probability in the Conflict matrix highlights the extreme statistical rarity of sustained high-volatility conflict events in the dataset).*
+
+
+
 -----------------------------------------
 
 **Limitations & Confounding Variables:**
