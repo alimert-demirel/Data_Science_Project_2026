@@ -63,15 +63,36 @@ The ML model successfully separated the market into three distinct realities:
 After the ML algorithm defined these regimes, I have overlaid the Geopolitical Conflict Days (**Red X's**) to see how they behave. The results visually confirm my hypothesis:
 
 1. **Conflicts Avoid Crashes:** There is a lack of conflict events observed in the "Panic Sell-off" (Yellow) zone compared to others. This proves that while wars cause human tragedy, they rarely cause downwards US market crashes.
-2. **The Upward Volatility Drift:** The conflict events mostly populate the "Business as Usual" (Purple) zone but frequently drift and incline upwards into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.
+2. **The Upward Volatility Drift:** The conflict events mostly populate the "Business as Usual" (Purple) zone but frequently drift and incline upwards into the "High-Fear Rallies" (Teal) zone. This aligns with our T-Test results, suggesting that major geopolitical escalations (particularly those threatening energy supplies) actually induce defensive market rallies rather than sell-offs.  
 
+### Advanced Lagrange Polynomial Interpolation
+To address the "Weekend Data Gap" where geopolitical events occur while markets are closed, this project implements **Lagrange Polynomial Interpolation**. 
+
+Instead of simple linear filling, I constructed a polynomial of degree n-1 that passes through n surrounding data points. This allows us to estimate the "latent volatility" on non trading days.
+  
+**The Formula:**
+```math
+P(x)=\sum_{j=0}^{n} y_j
+\prod_{\substack{0 \le m \le n \\ m \ne j}}
+\dfrac{x-x_m}{x_j-x_m}
+```
+
+Where:
+* $x_j$ are the known trading dates (Friday, Monday, Tuesday).
+* $y_j$ are the known VIX levels on those dates.
+* $P(x)$ is the interpolated VIX for the Saturday or Sunday of the conflict.
+
+  
 ### Quantitative Feature Engineering: Numerical Integration
 To also capture the sustained impact of a geopolitical shock rather than just a single-day panic, this project utilizes **Simpson’s 1/3 Rule** for numerical integration. 
 
 By integrating the VIX (Volatility Index) over a 3-day window surrounding an event ($t_{-1}$ to $t_{+1}$), we calculate the area under the volatility curve. This transforms a discrete daily metric into a continuous measure of "Total Market Stress".
 
-**The Formula:**
-$$\LARGE\int_{a}^{b} VIX(t) \, dt \approx \frac{h}{3} \left[ VIX(t_{-1}) + 4VIX(t_0) + VIX(t_{+1}) \right]$$
+**The Formula:**  
+```math
+\int_{a}^{b} VIX(t)\,dt \approx \frac{h}{3}
+\left[ VIX(t_{-1}) + 4VIX(t_0) + VIX(t_{+1}) \right]
+```
 
 Where:
 * $h = 1$ (representing our 1-day step size)
