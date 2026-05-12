@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, ConfusionMatrixDisplay
 from imblearn.over_sampling import SMOTE
+from scipy.interpolate import lagrange
 
 # Create figures directory
 if not os.path.exists('figures'):
@@ -144,6 +145,57 @@ def print_top_10_spikes(df_market, df_events):
         print(f"    Event: {headline}\n")
         rank += 1
 
+def apply_lagrange_interpolation(df_market):
+    print("Running Lagrange Interpolation for Weekend Crisis Estimation...")
+    
+    # We find indices where VIX is missing (weekends/holidays) 
+    # but an event occurred.
+    for i in range(2, len(df_market) - 2):
+        if df_market['Is_Event_Day'].iloc[i] == True and pd.isna(df_market['VIXCLS'].iloc[i]):
+            
+            # Grab surrounding x (indices) and y (VIX values)
+            # We'll use 2 days before and 2 days after to build the polynomial
+            x_known = np.array([i-2, i-1, i+1, i+2])
+            y_known = df_market['VIXCLS'].iloc[x_known].values
+            
+            # Create the Lagrange Polynomial
+            poly = lagrange(x_known, y_known)
+            
+            # Estimate the VIX for the missing day (index i)
+            estimated_vix = poly(i)
+            
+            # Fill the missing value
+            df_market.at[df_market.index[i], 'VIXCLS'] = estimated_vix
+            
+    print("Weekend gaps bridged using Lagrange Polynomials.")
+    return df_market
+
+def apply_simpsons_rule(df_market):
+    print("Applying Simpson's 1/3 Rule to calculate Total Market Stress...")
+    
+    # Create a new column full of zeros to hold our new math
+    df_market['Total_Market_Stress'] = 0.0
+    
+    # We use h = 1 because our time steps are 1 day
+    h = 1.0 
+    
+    # Loop through the data to find Event Days
+    for i in range(1, len(df_market) - 1):
+        if df_market['Is_Event_Day'].iloc[i] == True:
+            # Get the VIX for the day before, the day of, and the day after
+            vix_t_minus_1 = df_market['VIXCLS'].iloc[i-1]
+            vix_t_0       = df_market['VIXCLS'].iloc[i]
+            vix_t_plus_1  = df_market['VIXCLS'].iloc[i+1]
+            
+            # Apply Simpson's 1/3 Rule Formula
+            area_under_curve = (h / 3) * (vix_t_minus_1 + 4 * vix_t_0 + vix_t_plus_1)
+            
+            # Store the result
+            df_market.at[df_market.index[i], 'Total_Market_Stress'] = area_under_curve
+            
+    print("Numerical Integration complete. New feature 'Total_Market_Stress' added.")
+    return df_market
+
 def run_ml_clustering(df_market):
     print("\nRunning ML K-Means Clustering...")
     
@@ -235,6 +287,8 @@ if __name__ == "__main__":
     run_eda(market_data)
     run_hypothesis_test(market_data)
     print_top_10_spikes(market_data, event_data)
+    market_data = apply_lagrange_interpolation(market_data)
+    market_data = apply_simpsons_rule(market_data)
     run_ml_clustering(market_data)
     run_supervised_ml(market_data)
     print("Pipeline complete. EDA figures saved to the 'figures' directory.")
