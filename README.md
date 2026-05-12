@@ -119,7 +119,7 @@ Bottom-Right (True Positive): The day was actually an Event Day, and the model C
 
 
 * **Successful Predictions:** The model successfully identified actual Event Days that it previously ignored.
-* **False Positives:** The model misclassified 152 normal days as Event Days. 
+* **False Positives:** The model misclassified 128 normal days as Event Days. 
 
 **Conclusion:** 
 This outcome perfectly encapsulates the reality of macroeconomic forecasting. SMOTE successfully forced the model to recognize the "fear signature" of a conflict. However, the high rate of False Positives proves that the stock market's features (VIX and Returns) overlap heavily with other macroeconomic factors. An interest rate hike can cause the exact same volatility spike as a kinetic military strike. Ultimately, this pipeline proves that while geopolitical conflicts reliably generate market volatility, volatility alone is not a uniquely isolated feature capable of predicting conflicts.
