@@ -83,7 +83,7 @@ Where:
 * $P(x)$ is the interpolated VIX for the Saturday or Sunday of the conflict.
 
   
-### Quantitative Feature Engineering: Numerical Integration
+### Quantitative Feature Engineering With Numerical Integration
 To also capture the sustained impact of a geopolitical shock rather than just a single-day panic, this project utilizes **Simpson’s 1/3 Rule** for numerical integration. 
 
 By integrating the VIX (Volatility Index) over a 3-day window surrounding an event ($t_{-1}$ to $t_{+1}$), we calculate the area under the volatility curve. This transforms a discrete daily metric into a continuous measure of "Total Market Stress".
