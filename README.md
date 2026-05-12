@@ -85,7 +85,7 @@ Initially, the model suffered from severe class imbalance (658 Normal Days vs. 1
 
 **Results after SMOTE:**  
 ![Supervised ML Predictions](figures/supervised_confusion_matrix.png)  
--(WILL BE REVISED AND IMPROVED)-
+### The accuracy and precision of the Random Forest model greatly increased with the implementation of the recent numerical integration on 12 May 2026. ###
 
 Top-Left (True Negative): The day was actually Normal, and the model CORRECTLY predicted "Normal." It successfully ignored a usual day in the market.  
 
@@ -166,7 +166,8 @@ TOP 10 MARKET SPIKES ON CONFLICT DAYS (**12 May 2026 Output**)
 
 Model Classification Report (Post-SMOTE)  (**12 May 2026 Output**)
 
-This is the output generated for the evaluation of the Random Forest model. (A classification report based on the testing dataset, 20% of the total data).
+This is the output generated for the evaluation of the Random Forest model. (A classification report based on the testing dataset, 20% of the total data).  
+The accuracy and precision of the model greatly increased with the implementation of the recent numerical integration.
 
 ```text
 Running Supervised ML with SMOTE...
