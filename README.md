@@ -135,8 +135,8 @@ To test if these visual differences are statistically significant, I conducted a
 **Results From My Test Run On 12 May 2026, In order:**
 - Event Day Mean Return: 0.3779%
 - Non-Event Day Mean Return: 0.0474%
-- T-Statistic: 2.6618
-- P-Value: 0.0096
+- **T-Statistic: 2.6618**
+- **P-Value: 0.0096**
 - Result: Reject H0. There is a statistically significant difference in returns.
 
 **Interpretation:**
