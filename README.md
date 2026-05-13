@@ -210,6 +210,20 @@ weighted avg       0.97      0.80      0.87       672
 ### Markov Chains Volatility Regime Modeling
 Using K-Means clustering, the market was divided into three volatility states: **Low (0)**, **Medium (1)**, and **High (2)**. To measure how geopolitical conflicts alter market memory, we treated the market as a Stochastic Process and calculated **Markov Transition Probabilities** for both normal conditions and conflict days.  
 
+### The Mathematics of Markov Chains
+A Markov Chain is a stochastic model describing a sequence of possible events where the probability of each event depends **only** on the state attained in the previous event. This is known as the "memoryless" property.
+
+**The Markov Property Formula:**
+$$P(X_{n+1} = x \mid X_1 = x_1, X_2 = x_2, \dots, X_n = x_n) = P(X_{n+1} = x \mid X_n = x_n)$$
+
+**Transition Matrix Probability ($P_{ij}$):**
+To calculate the specific probabilities in our $3 \times 3$ matrices, we find the probability of moving to state $j$ tomorrow ($t+1$), given that the market is in state $i$ today ($t$).
+
+$$P_{ij} = P(X_{t+1} = j \mid X_t = i) = \frac{n_{ij}}{\sum_{k} n_{ik}}$$
+
+Where $n_{ij}$ is the number of times state $i$ transitioned to state $j$, divided by the total number of times the market was in state $i$
+
+
 #### Heatmaps
 ![Peace Time Heatmap](figures/peace_transition_heatmap.png)
 ![Conflict Time Heatmap](figures/conflict_transition_heatmap.png)  
